@@ -21,7 +21,6 @@ workdir=os.getcwd()
 
 def is_stacking(res1, res2):
     """ KC - return boolean for stacking """
-
     return cycle(res1).is_stacking(cycle(res2))
     
 ########################################################################
@@ -45,7 +44,7 @@ class interactions:
         self.search_H_bond()
         if self._graph:
             self.accessibility_VS_Hbond()
-
+            
     ##################################################
     ################### is H bond ####################
     ################################################## --> CG
@@ -80,7 +79,7 @@ class interactions:
             if is_hbond:
                 return True
         fileout.close()
-        
+
         return False
 
     ##################################################
@@ -94,7 +93,7 @@ class interactions:
         liste_cys=[res for res in self.model.res if res.get_resname()=="CYS"]
         for cys1 in liste_cys:
             for cys2 in liste_cys:
-                if cys1.get_id()!=cys2.get_id():
+                if cys1.get_id() != cys2.get_id():
                     if distance(cys1['SG'].get_coord(),cys2['SG'].get_coord())<parametres.dist_SS:
                         if (cys2.get_id(),cys1.get_id()) not in self.SS_bridges:
                             self.SS_bridges.append((cys1.get_id(),cys2.get_id()))

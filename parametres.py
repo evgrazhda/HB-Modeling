@@ -10,7 +10,7 @@ import os
 #KC#CG# list of ligands which will not be analysed as residues in the model
 list_lig_name=["UNK","BLK"]
 
-#KC# creation of donors and acceptors dictionaries from modeller librairy (modeller_donors_acceptors_lib.txt = /nfs/modeller/modlib/donor_acceptor.lib)
+#KC# creation of donors and acceptors dictionaries from modeller library (modeller_donors_acceptors_lib.txt = /nfs/modeller/modlib/donor_acceptor.lib)
 for name in ("DONOR", "ACCEPTOR"):
     liste_keys = os.popen("cat modeller_donors_acceptors_lib.txt | tr -s ' ' | grep "+name+" | cut -d ' ' -f 1 | uniq", "r").read().split()    
     liste = os.popen("cat modeller_donors_acceptors_lib.txt | tr -s ' ' | grep "+name+" | cut -d ' ' -f 1,4", "r").read().split("\n")
